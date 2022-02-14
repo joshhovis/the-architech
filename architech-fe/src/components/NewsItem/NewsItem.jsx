@@ -3,28 +3,30 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ArticleData from '../../TempData'
 
-console.log(ArticleData)
-console.log(ArticleData.articles)
-const apiKey = process.env.REACT_APP_API_KEY;
-const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=technology&language=en&sortBy=popularity&pageSize=8`
+
+// const apiKey = process.env.REACT_APP_API_KEY;
+// const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=technology&language=en&sortBy=popularity&pageSize=8`
 
 const NewsArticle = () => {
 
     const [newsArticle, setNewsArticle] = useState()
-    let { idx } = useParams()
-    let newURL = URL + idx
+    let { name } = useParams()
 
     const updateNewsArticle = async () => {
-        setNewsArticle(ArticleData.articles)
-    }
+        // fetch(URL)
+        //     .then((res) => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         console.log(name)
 
-    useEffect(() => {
-        updateNewsArticle()
-    }, [])
+        // const foundArticle = data.articles.find(article => { return article.title == name })
+        // console.log(foundArticle)
+        // setNewsArticle(foundArticle)
+        //     })
 
-
-    const updateNewsArticle = async () => {
-        setNewsArticle(ArticleData.articles)
+        const foundArticle = ArticleData.articles.find(article => { return article.title == name })
+        console.log(foundArticle)
+        setNewsArticle(foundArticle)
     }
 
     useEffect(() => {
@@ -36,7 +38,15 @@ const NewsArticle = () => {
     }
 
     return (
-        <h1 style={{ marginTop: '100px' }}>Article Title</h1>
+        <div>
+            <h1 style={{ marginTop: '100px' }}>{newsArticle.title}</h1>
+            <h6><cite>{newsArticle.author}</cite></h6>
+            <h6><cite className="text-muted">{new Date(newsArticle.publishedAt).toUTCString()}</cite></h6>
+            <img src={newsArticle.urlToImage} />
+            <p>{newsArticle.description}</p>
+            <p>You can read the full article by clicking the link below</p>
+            <a href={newsArticle.url}>{newsArticle.title}</a>
+        </div>
     )
 }
 
