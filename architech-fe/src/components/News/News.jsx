@@ -3,23 +3,20 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ArticleData from '../../TempData'
 
-const News = () => {
+// console.log(ArticleData)
+// console.log(ArticleData.articles)
 
-    console.log(ArticleData)
-    console.log(ArticleData.articles)
+const News = () => {
 
     const [articles, setArticles] = useState([])
 
     const updateNews = async () => {
-
         setArticles(ArticleData.articles)
-
     }
 
     useEffect(() => {
         updateNews()
     }, [])
-
 
     return (
         <div className='card-container'>
@@ -30,7 +27,7 @@ const News = () => {
                             <img src={article.urlToImage} className='card-img-top' />
                             <div className='card-body'>
                                 <h5 className='card-title'>
-                                    <Link to={`/articles/${idx}`} className="card-title-link">{article.title}</Link>
+                                    <a href={article.url} className="card-title-link">{article.title}</a>
                                 </h5>
                                 <p className='card-author-name'>By: {!article.author ? 'Unknown' : article.author}</p>
                                 <div className='card-date'>
