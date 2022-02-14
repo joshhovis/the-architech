@@ -38,15 +38,21 @@ const NewsArticle = () => {
     }
 
     return (
-        <div>
-            <h1 style={{ marginTop: '100px' }}>{newsArticle.title}</h1>
-            <h6><cite>{newsArticle.author}</cite></h6>
-            <h6><cite className="text-muted">{new Date(newsArticle.publishedAt).toUTCString()}</cite></h6>
-            <img src={newsArticle.urlToImage} />
-            <p>{newsArticle.description}</p>
-            <p>You can read the full article by clicking the link below</p>
-            <a href={newsArticle.url}>{newsArticle.title}</a>
-        </div>
+        <div className='container'>
+            <div className='article'>
+                <h1 className='article-title'>{newsArticle.title}</h1>
+                <div className='article-subheader'>
+                    <p className='article-subheader-author text-muted'><cite>By <span>{newsArticle.author}</span></cite> | </p>
+                    <p className='article-subheader-date'><cite className="text-muted">{new Date(newsArticle.publishedAt).toUTCString()}</cite></p>
+                </div>
+                <img className='article-image' src={newsArticle.urlToImage} />
+                <p className='article-description'>{newsArticle.description.slice(0, 220)}...</p>
+                <p className='article-read-more'>To read the full article, visit the link below</p>
+                <p className='article-linktag'>
+                    <a className='article-linktag-link' href={newsArticle.url}>{newsArticle.title}</a>
+                </p>
+            </div>
+        </div >
     )
 }
 
