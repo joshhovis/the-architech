@@ -1,8 +1,11 @@
 import './Navbar.sass'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Scroll from 'react-scroll'
+
 
 const Navbar = () => {
+    const ScrollLink = Scroll.ScrollLink
     return (
         <div>
             <nav className='navbar navbar-expand-lg navbar-light bg-white fixed-top'>
@@ -30,7 +33,6 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
         </div>
