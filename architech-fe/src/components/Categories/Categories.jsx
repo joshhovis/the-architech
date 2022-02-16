@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const CategoryButtons = () => {
 
     return (
-        <div className='categories'>
+        <div className='categories' name='categories'>
             <ul className='nav categories-nav'>
                 <li className='nav-item categories-list'>
                     <Link to='/home' className='nav-link categories-link'><span>#</span> General</Link>
