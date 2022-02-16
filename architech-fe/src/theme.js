@@ -12,7 +12,6 @@ export const darkTheme = {
     inset: '-20px',
     textColor: '#FFFFFF',
     cardTextHover: '#ff4262',
-    scollBarTrack: 'rgba(0, 0, 0, 0.8)',
     scrollBarGradient: 'linear-gradient(to bottom, #ff4262, #ff3c6f, #ff377c, #ff348a, #ff3498, #ff3c8f, #ff4387, #ff4b80, #ff6563, #ff8945, #ffb023, #ffd703);',
     logoInvert: 'invert(1)',
     mutedText: 'rgba(255,255,255,0.8)',

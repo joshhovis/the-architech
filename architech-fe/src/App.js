@@ -1,5 +1,5 @@
 import './App.sass';
-import React, { useState } from 'react'
+import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar.jsx';
 import News from './components/News/News.jsx';

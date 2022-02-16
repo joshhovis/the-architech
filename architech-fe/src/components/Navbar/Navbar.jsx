@@ -6,7 +6,7 @@ import { Link as ScrollLink } from 'react-scroll'
 
 
 const Navbar = ({ theme, toggleTheme }) => {
-    const isLight = theme === 'light';
+    const themeStyle = theme === 'light' ? 'Light' : 'Dark'
 
     return (
         <div>
@@ -22,7 +22,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                     <div className='collapse navbar-collapse' id='collapse-nav'>
                         <ul className='navbar-nav'>
 
-                            <button className='toggle-mode' onClick={toggleTheme}>Toggle Theme</button>
+                            <button className='toggle-mode' onClick={toggleTheme}>Toggle {themeStyle} Mode</button>
 
                             <li className='nav-item'>
                                 <Link to='/' className='nav-link' aria-current='page'>Home</Link>
