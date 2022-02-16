@@ -38,7 +38,7 @@ const News = (props) => {
     const fetchRecentArticles = async () => {
         try {
             const apiKey = process.env.REACT_APP_API_KEY;
-            const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
+            const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=12`
             let data = await fetch(recentURL)
 
             if (data.status === 429 || data.status === 426) {
