@@ -16,7 +16,7 @@ const News = (props) => {
             const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
             let data = await fetch(URL)
 
-            if (data.status === 429) {
+            if (data.status === 429 || data.status === 426) {
                 setArticles(ArticleData.articles)
             } else {
                 let parsedData = await data.json()
@@ -41,7 +41,7 @@ const News = (props) => {
             const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
             let data = await fetch(recentURL)
 
-            if (data.status === 429) {
+            if (data.status === 429 || data.status === 426) {
                 setRecentArticles(RecentArticleData.articles)
             } else {
                 let parsedData = await data.json()
