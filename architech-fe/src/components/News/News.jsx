@@ -42,7 +42,6 @@ const News = (props) => {
         // setRecentArticles(RecentArticleData.articles)
     }
 
-
     return (
         <div>
             <div className='card-container' name='trending'>
