@@ -11,11 +11,21 @@ const News = (props) => {
     const [recentArticles, setRecentArticles] = useState([])
 
     const updateNews = async () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
-        const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
-        let data = await fetch(URL)
-        let parsedData = await data.json()
-        setArticles(parsedData.articles)
+        try {
+            const apiKey = process.env.REACT_APP_API_KEY;
+            const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
+            let data = await fetch(URL)
+
+            if (data.status === 429) {
+                setArticles(ArticleData.articles)
+            } else {
+                let parsedData = await data.json()
+                setArticles(parsedData.articles)
+            }
+
+        } catch (err) {
+            console.log(err)
+        }
 
         // setArticles(ArticleData.articles)
     }
@@ -26,20 +36,28 @@ const News = (props) => {
     }, [props])
 
     const fetchRecentArticles = async () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
-        const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
-        let data = await fetch(recentURL)
-        let parsedData = await data.json()
+        try {
+            const apiKey = process.env.REACT_APP_API_KEY;
+            const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
+            let data = await fetch(recentURL)
 
-        for (let i = 0; i < parsedData.articles.length; i++) {
-            if (parsedData.articles[i].urlToImage == ('null' || null)) {
-                parsedData.articles.splice([i], 1)
+            if (data.status === 429) {
+                setRecentArticles(RecentArticleData.articles)
+            } else {
+                let parsedData = await data.json()
+
+                for (let i = 0; i < parsedData.articles.length; i++) {
+                    if (parsedData.articles[i].urlToImage == ('null' || null)) {
+                        parsedData.articles.splice([i], 1)
+                    }
+                }
+
+                setRecentArticles(parsedData.articles)
             }
+
+        } catch (err) {
+            console.log(err)
         }
-
-        setRecentArticles(parsedData.articles)
-
-        // setRecentArticles(RecentArticleData.articles)
     }
 
     return (

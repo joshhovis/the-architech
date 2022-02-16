@@ -89,19 +89,6 @@ const ArticleData = {
             "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2022-01/e9f511c0-77de-11ec-bcf9-6967b1378f23",
             "publishedAt": "2022-01-18T14:05:18Z",
             "content": "Grilling season will be here before you know it, so one of the biggest names in backyard cooking is tipping its hand for spring. Today, Weber announced it's 2022 lineup of smart grills with options f… [+3332 chars]"
-        },
-        {
-            "source": {
-                "id": "engadget",
-                "name": "Engadget"
-            },
-            "author": "Andrew Tarantola",
-            "title": "Hitting the Books: What autonomous vehicles mean for tomorrow's workforce",
-            "description": "In the face of daily pandemic-induced upheavals, the notion of \"business as usual\" can often seem a quaint and distant notion to today's workforce. But even before we all got stuck in never-ending Zoom meetings, the logistics and transportation sectors (like …",
-            "url": "https://www.engadget.com/hitting-the-books-the-work-of-the-future-autor-mindell-reynolds-mit-press-163011680.html",
-            "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2022-01/646d87d0-7315-11ec-beb1-32080a300622",
-            "publishedAt": "2022-01-22T16:30:11Z",
-            "content": "In the face of daily pandemic-induced upheavals, the notion of \"business as usual\" can often seem a quaint and distant notion to today's workforce. But even before we all got stuck in never-ending Zo… [+13300 chars]"
         }
     ]
 }
