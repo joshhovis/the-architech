@@ -10,12 +10,12 @@ const NewsArticle = (props) => {
 
     const updateNewsArticle = async () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
+        const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity`
         fetch(URL)
             .then((res) => res.json())
             .then(data => {
-                console.log(data)
-                console.log(name)
+                // console.log(data)
+                // console.log(name)
                 console.log(data.articles)
 
                 const foundArticle = data.articles.find(article => { return article.title == name })
@@ -26,7 +26,7 @@ const NewsArticle = (props) => {
 
     useEffect(() => {
         updateNewsArticle()
-        fetchRecentArticles()
+        // fetchRecentArticles()
     }, [props])
 
     const fetchRecentArticles = async () => {
@@ -34,9 +34,9 @@ const NewsArticle = (props) => {
         const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
 
         fetch(recentURL).then((res) => res.json()).then(data => {
-            console.log(data)
-            console.log(name)
-            console.log(data.articles)
+            // console.log(data)
+            // console.log(name)
+            // console.log(data.articles)
 
             const foundArticle = data.articles.find(article => { return article.title == name })
             console.log(foundArticle)

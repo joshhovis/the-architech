@@ -38,7 +38,7 @@ function App() {
 
 
             <Route path='/technology/:name' element={<NewsArticle category='technology' />} />
-            <Route path='/mobile/:name' element={<NewsArticle category='mobile-development' />} />
+            <Route path='/mobile-development/:name' element={<NewsArticle category='mobile-development' />} />
             <Route path='/crypto/:name' element={<NewsArticle category='crypto' />} />
             <Route path='/artificial-intelligence/:name' element={<NewsArticle category='artificial-intelligence' />} />
             <Route path='/computer-science/:name' element={<NewsArticle category='computer-science' />} />

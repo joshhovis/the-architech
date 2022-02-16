@@ -12,14 +12,12 @@ const News = (props) => {
 
     const updateNews = async () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        // const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
-        // let data = await fetch(URL)
-        // console.log(data)
-        // let parsedData = await data.json()
-        // console.log(parsedData)
-        // setArticles(parsedData.articles)
+        const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
+        let data = await fetch(URL)
+        let parsedData = await data.json()
+        setArticles(parsedData.articles)
 
-        setArticles(ArticleData.articles)
+        // setArticles(ArticleData.articles)
     }
 
     useEffect(() => {
@@ -29,21 +27,19 @@ const News = (props) => {
 
     const fetchRecentArticles = async () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        // const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
-        // let data = await fetch(recentURL)
-        // console.log(data)
-        // let parsedData = await data.json()
-        // console.log(parsedData)
+        const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
+        let data = await fetch(recentURL)
+        let parsedData = await data.json()
 
-        // for (let i = 0; i < parsedData.articles.length; i++) {
-        //     if (parsedData.articles[i].urlToImage == 'null') {
-        //         parsedData.articles.splice([i], 1)
-        //     }
-        // }
+        for (let i = 0; i < parsedData.articles.length; i++) {
+            if (parsedData.articles[i].urlToImage == ('null' || null)) {
+                parsedData.articles.splice([i], 1)
+            }
+        }
 
-        // setRecentArticles(parsedData.articles)
+        setRecentArticles(parsedData.articles)
 
-        setRecentArticles(RecentArticleData.articles)
+        // setRecentArticles(RecentArticleData.articles)
     }
 
     return (
@@ -51,7 +47,7 @@ const News = (props) => {
             <div className='card-container' name='trending'>
                 <h2 className='trending-title'>Trending</h2>
                 <ul className='card-list'>
-                    {articles.slice(0, 7).map(article => {
+                    {articles.map(article => {
                         return (
                             <li className='card'>
                                 <img src={article.urlToImage} className='card-img-top' />

@@ -2,6 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
+::selection {
+    background: ${({ theme }) => theme.textHighlight};
+}
+
 ::-webkit-scrollbar {
     &-thumb {
         background-image: ${({ theme }) => theme.scrollBarGradient};
@@ -23,6 +27,34 @@ body {
 
 #navbar-title {
     color: ${({ theme }) => theme.textColor};
+}
+
+#collapse-nav {
+    .navbar-nav {
+        .nav-link {
+            &:hover {
+                color: ${({ theme }) => theme.cardTextHover}!important;
+            }
+
+            span {
+                &:hover {
+                    color: ${({ theme }) => theme.navbarLinkMuted}!important;
+                }
+            }
+        }
+        .toggle-mode-button {
+            background: ${({ theme }) => theme.body};
+            color: ${({ theme }) => theme.textColor};
+
+            &:before {
+                background-image: ${({ theme }) => theme.toggleBtnBackground}!important;
+            }
+
+            span {
+                background-image: ${({ theme }) => theme.toggleBtnText}!important;
+            }
+        }
+    }
 }
 
 .toggle-mode {

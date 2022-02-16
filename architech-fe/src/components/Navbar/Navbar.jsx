@@ -22,19 +22,21 @@ const Navbar = ({ theme, toggleTheme }) => {
                     <div className='collapse navbar-collapse' id='collapse-nav'>
                         <ul className='navbar-nav'>
 
-                            <button className='toggle-mode' onClick={toggleTheme}>Toggle {themeStyle} Mode</button>
+                            <li className='toggle-mode'>
+                                <button className='toggle-mode-button' onClick={toggleTheme}><span>Toggle {themeStyle} Mode</span></button>
+                            </li>
 
                             <li className='nav-item'>
                                 <Link to='/' className='nav-link' aria-current='page'>Home</Link>
                             </li>
                             <li className='nav-item'>
-                                <ScrollLink to='categories' smooth={true} duration={600} offset={-100} className='nav-link text-muted'><span>Categories</span></ScrollLink>
+                                <ScrollLink to='categories' smooth={true} duration={600} offset={-100} className='nav-link'><span>Categories</span></ScrollLink>
                             </li>
                             <li className='nav-item'>
-                                <ScrollLink to='trending' smooth={true} duration={600} offset={-80} className='nav-link text-muted'><span>Trending</span></ScrollLink>
+                                <ScrollLink to='trending' smooth={true} duration={600} offset={-80} className='nav-link'><span>Trending</span></ScrollLink>
                             </li>
                             <li className='nav-item'>
-                                <ScrollLink to='recent' smooth={true} duration={600} offset={-80} className='nav-link text-muted'><span>Recent</span></ScrollLink>
+                                <ScrollLink to='recent' smooth={true} duration={600} offset={-80} className='nav-link'><span>Recent</span></ScrollLink>
                             </li>
                             <li className='nav-item'>
                                 <ScrollLink to='footer' smooth={true} duration={600} className='nav-link'>About Us</ScrollLink>

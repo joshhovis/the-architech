@@ -17,12 +17,6 @@
     justify-content: flex-end
     margin-top: -10px
 
-    .toggle-mode
-        background-color: transparent
-        border: 1px solid black
-        border-radius: 10px
-        margin-right: 40px
-
     .nav-item
         padding-right: 40px
         &:last-child
@@ -31,3 +25,43 @@
     .nav-link
         cursor: pointer
         color: rgba(0, 0, 0, 1)
+        transition: all 0.3s
+
+        &:hover
+            color: #a97df1!important
+            transition: all 0.3s
+
+        span
+            transition: all 0.3s
+            &:hover
+                color: rgba(169, 125, 241, 0.7)!important
+                transition: all 0.3s
+    
+    .toggle-mode
+        display: flex
+        align-items: center
+        border: none!important
+
+        &-button
+            background-color: white
+            border: none
+            outline: none
+            box-shadow: none
+            border-radius: 10px
+            margin-right: 40px
+            position: relative
+            height: 35px
+            border-radius: 6px
+
+            span
+                font-weight: 500
+                background-clip: text
+                -webkit-background-clip: text
+                color: transparent
+
+            &::before
+                content: ""
+                position: absolute
+                inset: -3px
+                z-index: -1
+                border-radius: 8px
