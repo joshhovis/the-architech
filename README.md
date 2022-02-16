@@ -11,6 +11,9 @@
     - API Key used is the NewsAPI.org (GET https://newsapi.org/v2/everything).
     
     Site link (https://admiring-sinoussi-965ae2.netlify.app)
+
+* **Technologies Used**
+    - ReactJS, Bootstrap, SASS, React-Styled-Components
     
 * **Screenshots**
 
@@ -18,9 +21,6 @@
     ![Insert Image here](https://i.imgur.com/R7w1BsC.png?1)
     ![Insert Image here](https://i.imgur.com/juzIO5e.png?1)
     ![Insert Image here](https://i.imgur.com/zN4VOrk.png?1)
-
-* **Technologies Used**
-    - ReactJS, Bootstrap, SASS, React-Styled-Components
 
 * **Key features**
     - Homepage with the most trending and most recent articles displayed
