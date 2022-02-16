@@ -1,11 +1,11 @@
 import './Navbar.sass'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Scroll from 'react-scroll'
+import { Link as ScrollLink } from 'react-scroll'
 
 
 const Navbar = () => {
-    const ScrollLink = Scroll.ScrollLink
+    // const ScrollLink = Scroll.ScrollLink
     return (
         <div>
             <nav className='navbar navbar-expand-lg navbar-light bg-white fixed-top'>
@@ -23,10 +23,10 @@ const Navbar = () => {
                                 <Link to='/' className='nav-link active' aria-current='page'>Home</Link>
                             </li>
                             <li className='nav-item'>
-                                <Link to='/' className='nav-link'>Trending</Link>
+                                <ScrollLink to='trending' smooth={true} duration={600} offset={-80} className='nav-link'>Trending</ScrollLink>
                             </li>
                             <li className='nav-item'>
-                                <Link to='/' className='nav-link'>Recent</Link>
+                                <ScrollLink to='recent' smooth={true} duration={600} offset={-80} className='nav-link'>Recent</ScrollLink>
                             </li>
                             <li className='nav-item'>
                                 <Link to='/' className='nav-link'>About Us</Link>

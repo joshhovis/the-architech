@@ -1,0 +1,70 @@
+.categories
+    margin-top: 100px
+
+    &-nav
+        width: 50%
+        margin: 0 auto
+        justify-content: space-evenly
+
+    &-list
+
+        @mixin hashtagColor
+            background-image: linear-gradient(to bottom left, #69eacb, #5ee8eb, #78e3ff, #9edcff, #c1d5ff, #c1c9ff, #c8bbfc, #d4abf4, #c093f2, #a97df1, #8c68f1, #6654f1)
+            background-clip: text
+            -webkit-background-clip: text
+            color: transparent
+
+        &:nth-child(1)
+            span
+                @include hashtagColor
+
+        &:nth-child(2)
+            span
+                @include hashtagColor
+
+        &:nth-child(3)
+            span
+                @include hashtagColor
+
+        &:nth-child(4)
+            span
+                @include hashtagColor
+
+
+        &:nth-child(5)
+            span
+                @include hashtagColor
+
+        &:nth-child(6)
+            span
+                @include hashtagColor
+
+        &:nth-child(7)
+            span
+                @include hashtagColor
+
+    &-link
+        width: auto
+        height: 40px
+        font-size: 1.1em
+        cursor: pointer
+        color: black
+        border: none
+        border-radius: 8px
+        transition: all .4s
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px
+
+        &::before
+            // content: ""
+            // position: absolute
+            // inset: -2px
+            // z-index: -1
+            // background: linear-gradient(45deg, #ff4262, #ffd703, #ff38ac)
+            // border-radius: 8px
+
+        &:hover
+            border-radius: 8px
+            transform: translateY(-10px)
+            // box-shadow: 0 7px 0 -2px #f85959, 0 15px 0 -4px #39a2db, 0 16px 10px -3px #39a2db
+            box-shadow: 0 7px 0 -2px #6654f1, 0 15px 0 -4px #78e3ff, 0 16px 10px -3px #78e3ff
+            color: #a97df1
