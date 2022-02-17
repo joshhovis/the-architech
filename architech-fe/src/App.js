@@ -24,7 +24,6 @@ function App() {
 
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         <CategoryButtons />
-        {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
         <div>
           <Routes>
             <Route path='/' element={<Navigate to='/home' />} />
