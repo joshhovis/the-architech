@@ -8,7 +8,7 @@
     
 * **Description**
     - A technology related News website that presents the most recent and highest trending articles to the user with a variety of different search filters
-    - API Key used is the NewsAPI.org (GET https://newsapi.org/v2/everything).
+    - API Key used is the NewsCatcherAPI.com (GET https://api.newscatcherapi.com/v2/search).
     
     Site link (https://admiring-sinoussi-965ae2.netlify.app)
 
