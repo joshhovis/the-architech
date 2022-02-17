@@ -2,6 +2,7 @@ import './News.sass'
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import InfiniteScroll from "react-infinite-scroll-component";
 import ArticleData from '../TempData'
 import RecentArticleData from '../TempRecentData'
 
@@ -12,48 +13,53 @@ const News = (props) => {
 
     const updateNews = async () => {
         try {
-            const apiKey = process.env.REACT_APP_API_KEY;
-            const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity&pageSize=7`
-            let data = await fetch(URL)
+            const apiKey = process.env.REACT_APP_API_KEY
+            const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7`
 
-            if (data.status === 429 || data.status === 426) {
-                setArticles(ArticleData.articles)
-            } else {
-                let parsedData = await data.json()
-                setArticles(parsedData.articles)
-            }
+            let data = await fetch(URL, {
+                headers: {
+                    'x-api-key': apiKey
+                }
+            })
+
+            let parsedData = await data.json()
+
+            console.log(parsedData)
+
+            // for (let i = 0; i < parsedData.articles.length; i++) {
+            //     if (parsedData.articles[i].title.length > 15) {
+            //         parsedData.articles.splice(0)
+            //         break;
+            //     }
+            // }
+
+            setArticles(parsedData.articles)
 
         } catch (err) {
             console.log(err)
         }
-
-        // setArticles(ArticleData.articles)
     }
 
     useEffect(() => {
         updateNews()
-        fetchRecentArticles()
+        setTimeout(() => {
+            fetchRecentArticles()
+        }, 1200);
     }, [props])
 
     const fetchRecentArticles = async () => {
         try {
-            const apiKey = process.env.REACT_APP_API_KEY;
-            const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=12`
-            let data = await fetch(recentURL)
+            const apiKey = process.env.REACT_APP_API_KEY
+            const recentURL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&sort_by=date&page_size=12&page=1`
 
-            if (data.status === 429 || data.status === 426) {
-                setRecentArticles(RecentArticleData.articles)
-            } else {
-                let parsedData = await data.json()
-
-                for (let i = 0; i < parsedData.articles.length; i++) {
-                    if (parsedData.articles[i].urlToImage == ('null' || null)) {
-                        parsedData.articles.splice([i], 1)
-                    }
+            let data = await fetch(recentURL, {
+                headers: {
+                    'x-api-key': apiKey
                 }
+            })
 
-                setRecentArticles(parsedData.articles)
-            }
+            let parsedData = await data.json()
+            setRecentArticles(parsedData.articles)
 
         } catch (err) {
             console.log(err)
@@ -68,7 +74,7 @@ const News = (props) => {
                     {articles.map(article => {
                         return (
                             <li className='card'>
-                                <img src={article.urlToImage} className='card-img-top' />
+                                <img src={article.media} className='card-img-top' />
                                 <div className='card-body'>
                                     <h5 className='card-title'>
                                         <Link to={`/${props.category}/${article.title}`} className="card-title-link">{article.title.toLowerCase()}</Link>
@@ -81,20 +87,21 @@ const News = (props) => {
                 </ul>
             </div>
 
+
             <div className='recent-container' name='recent'>
                 <h2 className='recent-title'>Recent</h2>
                 <ul className='recent-card-list'>
                     {recentArticles.map(article => {
                         return (
                             <li className='recent-card'>
-                                <img src={article.urlToImage} className='recent-card-image' />
+                                <img src={article.media} className='recent-card-image' />
                                 <div className='recent-card-body'>
                                     <h5 className='recent-card-title'>
                                         <Link to={`/${props.category}/${article.title}`} className='recent-card-title-link'>{article.title.toLowerCase()}</Link>
                                     </h5>
                                     <div className='recent-card-authorDate'>
                                         <p className='recent-card-author text-muted'>{!article.author ? ' ' : 'By '}<span>{!article.author ? 'Author Unknown' : article.author}</span> | </p>
-                                        <p className='recent-card-date'><cite className="text-muted">{new Date(article.publishedAt).toLocaleString()}</cite></p>
+                                        <p className='recent-card-date'><cite className="text-muted">{new Date(article.published_date).toLocaleString()}</cite></p>
                                     </div>
                                 </div>
                             </li>
@@ -107,7 +114,7 @@ const News = (props) => {
 }
 
 News.defaultProps = {
-    category: 'technology'
+    category: 'tech'
 }
 
 News.propTypes = {

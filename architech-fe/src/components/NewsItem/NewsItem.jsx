@@ -10,36 +10,28 @@ const NewsArticle = (props) => {
 
     const updateNewsArticle = async () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        const URL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=popularity`
-        fetch(URL)
+        const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7`
+        fetch(URL, { headers: { 'x-api-key': apiKey } })
             .then((res) => res.json())
             .then(data => {
-                // console.log(data)
-                // console.log(name)
-                console.log(data.articles)
 
                 const foundArticle = data.articles.find(article => { return article.title == name })
-                console.log(foundArticle)
                 setNewsArticle(foundArticle)
             })
     }
 
     useEffect(() => {
         updateNewsArticle()
-        // fetchRecentArticles()
+        // updateRecentArticles()
     }, [props])
 
-    const fetchRecentArticles = async () => {
+    const updateRecentArticles = async () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        const recentURL = `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${props.category}&language=en&sortBy=publishedAt&pageSize=20`
+        const recentURL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&sort_by=date&page_size=12&page=1`
 
-        fetch(recentURL).then((res) => res.json()).then(data => {
-            // console.log(data)
-            // console.log(name)
-            // console.log(data.articles)
+        fetch(recentURL, { headers: { 'x-api-key': apiKey } }).then((res) => res.json()).then(data => {
 
             const foundArticle = data.articles.find(article => { return article.title == name })
-            console.log(foundArticle)
             setNewsArticle(foundArticle)
         })
     }
@@ -54,13 +46,13 @@ const NewsArticle = (props) => {
                 <h1 className='article-title'>{newsArticle.title}</h1>
                 <div className='article-subheader'>
                     <p className='article-subheader-author text-muted'><cite>By <span>{newsArticle.author}</span></cite> | </p>
-                    <p className='article-subheader-date'><cite className="text-muted">{new Date(newsArticle.publishedAt).toUTCString()}</cite></p>
+                    <p className='article-subheader-date'><cite className="text-muted">{new Date(newsArticle.published_date).toUTCString()}</cite></p>
                 </div>
-                <img className='article-image' src={newsArticle.urlToImage} />
-                <p className='article-description'>{newsArticle.description.slice(0, 220)}...</p>
+                <img className='article-image' src={newsArticle.media} />
+                <p className='article-description'>{newsArticle.summary}</p>
                 <p className='article-read-more'>To read the full article, visit the link below</p>
                 <p className='article-linktag'>
-                    <a className='article-linktag-link' href={newsArticle.url}>{newsArticle.title}</a>
+                    <a className='article-linktag-link' href={newsArticle.link}>{newsArticle.title}</a>
                 </p>
             </div>
         </div >
@@ -68,7 +60,7 @@ const NewsArticle = (props) => {
 }
 
 NewsArticle.defaultProps = {
-    category: 'technology'
+    category: 'tech'
 }
 
 NewsArticle.propTypes = {

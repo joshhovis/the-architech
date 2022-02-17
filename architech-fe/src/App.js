@@ -27,7 +27,7 @@ function App() {
         <div>
           <Routes>
             <Route path='/' element={<Navigate to='/home' />} />
-            <Route path='/home' element={<News category='technology' />} />
+            <Route path='/home' element={<News category='tech' />} />
             <Route path='/mobile' element={<News category='mobile-development' />} />
             <Route path='/crypto' element={<News category='crypto' />} />
             <Route path='/artificial-intelligence' element={<News category='artificial-intelligence' />} />
@@ -36,7 +36,7 @@ function App() {
             <Route path='/cybersecurity' element={<News category='cybersecurity' />} />
 
 
-            <Route path='/technology/:name' element={<NewsArticle category='technology' />} />
+            <Route path='/tech/:name' element={<NewsArticle category='tech' />} />
             <Route path='/mobile-development/:name' element={<NewsArticle category='mobile-development' />} />
             <Route path='/crypto/:name' element={<NewsArticle category='crypto' />} />
             <Route path='/artificial-intelligence/:name' element={<NewsArticle category='artificial-intelligence' />} />
