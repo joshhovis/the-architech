@@ -44,7 +44,7 @@ const News = (props) => {
         updateNews()
         setTimeout(() => {
             fetchRecentArticles()
-        }, 1400);
+        }, 1200);
     }, [props])
 
     const fetchRecentArticles = async () => {
