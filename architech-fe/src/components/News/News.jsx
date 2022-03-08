@@ -2,7 +2,6 @@ import './News.sass'
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import InfiniteScroll from "react-infinite-scroll-component";
 import ArticleData from '../TempData'
 import RecentArticleData from '../TempRecentData'
 
