@@ -2,7 +2,6 @@ import './News.sass'
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import InfiniteScroll from "react-infinite-scroll-component";
 import ArticleData from '../TempData'
 import RecentArticleData from '../TempRecentData'
 
@@ -26,14 +25,17 @@ const News = (props) => {
 
             console.log(parsedData)
 
-            // for (let i = 0; i < parsedData.articles.length; i++) {
-            //     if (parsedData.articles[i].title.length > 15) {
-            //         parsedData.articles.splice(0)
-            //         break;
-            //     }
-            // }
+            for (let i = 0; i < parsedData.articles.length; i++) {
+                if (parsedData.articles[i].title.length > 15) {
+                    parsedData.articles.splice(0)
+                    break;
+                }
+            }
 
             setArticles(parsedData.articles)
+
+            // setArticles(ArticleData.articles)
+            // console.log(ArticleData)
 
         } catch (err) {
             console.log(err)
@@ -42,9 +44,9 @@ const News = (props) => {
 
     useEffect(() => {
         updateNews()
-        setTimeout(() => {
-            fetchRecentArticles()
-        }, 1200);
+        // setTimeout(() => {
+        //     fetchRecentArticles()
+        // }, 1200);
     }, [props])
 
     const fetchRecentArticles = async () => {
