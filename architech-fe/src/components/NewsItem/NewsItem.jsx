@@ -10,7 +10,7 @@ const NewsArticle = (props) => {
 
     const updateNewsArticle = async () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7`
+        const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=2`
         fetch(URL, { headers: { 'x-api-key': apiKey } })
             .then((res) => res.json())
             .then(data => {

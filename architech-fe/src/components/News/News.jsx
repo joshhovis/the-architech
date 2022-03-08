@@ -13,7 +13,7 @@ const News = (props) => {
     const updateNews = async () => {
         try {
             const apiKey = process.env.REACT_APP_API_KEY
-            const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7`
+            const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=2`
 
             let data = await fetch(URL, {
                 headers: {
@@ -44,9 +44,9 @@ const News = (props) => {
 
     useEffect(() => {
         updateNews()
-        // setTimeout(() => {
-        //     fetchRecentArticles()
-        // }, 1200);
+        setTimeout(() => {
+            fetchRecentArticles()
+        }, 1400);
     }, [props])
 
     const fetchRecentArticles = async () => {
