@@ -55,7 +55,7 @@ const NewsArticle = (props) => {
                     <p className='article-subheader-author text-muted'><cite>By <span>{newsArticle.author}</span></cite> | </p>
                     <p className='article-subheader-date'><cite className="text-muted">{new Date(newsArticle.published_date).toUTCString()}</cite></p>
                 </div>
-                <img className='article-image' src={newsArticle.media} />
+                <img className='article-image' src={newsArticle.media} onError={(e) => (e.target.onerror = null, e.target.src = 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg')} />
                 <p className='article-description'>{newsArticle.summary}</p>
                 <p className='article-read-more'>To read the full article, visit the link below</p>
                 <p className='article-linktag'>
