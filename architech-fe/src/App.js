@@ -36,13 +36,13 @@ function App() {
             <Route path='/cybersecurity' element={<News category='cybersecurity' />} />
 
 
-            <Route path='/tech/:name' element={<NewsArticle category='tech' />} />
-            <Route path='/mobile-development/:name' element={<NewsArticle category='mobile-development' />} />
-            <Route path='/crypto/:name' element={<NewsArticle category='crypto' />} />
-            <Route path='/artificial-intelligence/:name' element={<NewsArticle category='artificial-intelligence' />} />
-            <Route path='/computer-science/:name' element={<NewsArticle category='computer-science' />} />
-            <Route path='/virtual-reality/:name' element={<NewsArticle category='virtual-reality' />} />
-            <Route path='/cybersecurity/:name' element={<NewsArticle category='cybersecurity' />} />
+            <Route path='/tech/:id' element={<NewsArticle category='tech' />} />
+            <Route path='/mobile-development/:id' element={<NewsArticle category='mobile-development' />} />
+            <Route path='/crypto/:id' element={<NewsArticle category='crypto' />} />
+            <Route path='/artificial-intelligence/:id' element={<NewsArticle category='artificial-intelligence' />} />
+            <Route path='/computer-science/:id' element={<NewsArticle category='computer-science' />} />
+            <Route path='/virtual-reality/:id' element={<NewsArticle category='virtual-reality' />} />
+            <Route path='/cybersecurity/:id' element={<NewsArticle category='cybersecurity' />} />
           </Routes>
         </div>
         <Footer />

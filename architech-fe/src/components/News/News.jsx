@@ -13,25 +13,17 @@ const News = (props) => {
     const updateNews = async () => {
         try {
             const apiKey = process.env.REACT_APP_API_KEY
-            const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=2`
+            const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=1`
 
             let data = await fetch(URL, {
                 headers: {
-                    'x-api-key': apiKey
+                    'x-api-key': apiKey,
                 }
             })
 
             let parsedData = await data.json()
 
             console.log(parsedData)
-
-            // for (let i = 0; i < parsedData.articles.length; i++) {
-            //     if (parsedData.articles[i].title.length > 15) {
-            //         parsedData.articles.splice(0)
-            //         break;
-            //     }
-            // }
-
             setArticles(parsedData.articles)
 
         } catch (err) {
@@ -41,9 +33,6 @@ const News = (props) => {
 
     useEffect(() => {
         updateNews()
-        setTimeout(() => {
-            fetchRecentArticles()
-        }, 1200);
     }, [props])
 
     const fetchRecentArticles = async () => {
@@ -65,6 +54,12 @@ const News = (props) => {
         }
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchRecentArticles()
+        }, 2000);
+    }, [props])
+
     return (
         <div>
             <div className='card-container' name='trending'>
@@ -72,11 +67,11 @@ const News = (props) => {
                 <ul className='card-list'>
                     {articles.map(article => {
                         return (
-                            <li className='card'>
-                                <img src={article.media} className='card-img-top' />
+                            <li key={article._id} className='card'>
+                                <img src={article.media} className='card-img-top' onError={(e) => (e.target.onerror = null, e.target.src = 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg')} />
                                 <div className='card-body'>
                                     <h5 className='card-title'>
-                                        <Link to={`/${props.category}/${article.title}`} className="card-title-link">{article.title.toLowerCase()}</Link>
+                                        <Link to={`/${props.category}/${article._id}`} className="card-title-link">{article.title.toLowerCase()}</Link>
                                     </h5>
                                     <p className='card-author-name'>By <span>{!article.author ? 'Unknown' : article.author}</span></p>
                                 </div>
@@ -92,7 +87,7 @@ const News = (props) => {
                 <ul className='recent-card-list'>
                     {recentArticles.map(article => {
                         return (
-                            <li className='recent-card'>
+                            <li key={article._id} className='recent-card'>
                                 <img src={article.media} className='recent-card-image' />
                                 <div className='recent-card-body'>
                                     <h5 className='recent-card-title'>

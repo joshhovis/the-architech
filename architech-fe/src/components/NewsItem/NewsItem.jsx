@@ -6,35 +6,42 @@ import PropTypes from 'prop-types'
 const NewsArticle = (props) => {
 
     const [newsArticle, setNewsArticle] = useState()
-    let { name } = useParams()
+    let { id } = useParams()
 
-    const updateNewsArticle = async () => {
+    const updateNewsArticle = () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=2`
+        const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=1`
         fetch(URL, { headers: { 'x-api-key': apiKey } })
             .then((res) => res.json())
             .then(data => {
 
-                const foundArticle = data.articles.find(article => { return article.title == name })
+                console.log(data.articles)
+                const foundArticle = data.articles.find(article => { return article._id == id })
                 setNewsArticle(foundArticle)
             })
+
     }
 
     useEffect(() => {
         updateNewsArticle()
-        // updateRecentArticles()
-    }, [props])
+    })
 
-    const updateRecentArticles = async () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
-        const recentURL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&sort_by=date&page_size=12&page=1`
+    // const updateRecentArticles = () => {
+    //     const apiKey = process.env.REACT_APP_API_KEY;
+    //     const recentURL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&sort_by=date&page_size=12&page=1`
 
-        fetch(recentURL, { headers: { 'x-api-key': apiKey } }).then((res) => res.json()).then(data => {
+    //     fetch(recentURL, { headers: { 'x-api-key': apiKey } }).then((res) => res.json()).then(data => {
 
-            const foundArticle = data.articles.find(article => { return article.title == name })
-            setNewsArticle(foundArticle)
-        })
-    }
+    //         const foundArticle = data.articles.find(article => { return article.title == name })
+    //         setNewsArticle(foundArticle)
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         updateRecentArticles()
+    //     }, 2000);
+    // })
 
     if (!newsArticle) {
         return <h3 className='loading-text' style={{ marginTop: '40px' }}>Your article is loading... If the article doesn't load, try refreshing the page!</h3>
