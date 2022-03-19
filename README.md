@@ -10,7 +10,7 @@
     - A technology related News website that presents the most recent and highest trending articles to the user with a variety of different search filters
     - API Key used is the NewsCatcherAPI.com (GET https://api.newscatcherapi.com/v2/search).
     
-    Site link (https://admiring-sinoussi-965ae2.netlify.app)
+    Site link (https://the-architech.netlify.app/)
 
 * **Technologies Used**
     - ReactJS, Bootstrap, SASS, React-Styled-Components
