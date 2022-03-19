@@ -68,7 +68,7 @@ const News = (props) => {
                     {articles.map(article => {
                         return (
                             <li key={article._id} className='card'>
-                                <img src={article.media} className='card-img-top' onError={(e) => (e.target.onerror = null, e.target.src = 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg')} />
+                                <img src={article.media || 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg'} className='card-img-top' onError={(e) => (e.target.onerror = null, e.target.src = 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg')} />
                                 <div className='card-body'>
                                     <h5 className='card-title'>
                                         <Link to={`/${props.category}/${article._id}`} className="card-title-link">{article.title.toLowerCase()}</Link>
@@ -88,10 +88,10 @@ const News = (props) => {
                     {recentArticles.map(article => {
                         return (
                             <li key={article._id} className='recent-card'>
-                                <img src={article.media} className='recent-card-image' />
+                                <img src={article.media || 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg'} className='recent-card-image' onError={(e) => (e.target.onerror = null, e.target.src = 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg')} />
                                 <div className='recent-card-body'>
                                     <h5 className='recent-card-title'>
-                                        <Link to={`/${props.category}/${article.title}`} className='recent-card-title-link'>{article.title.toLowerCase()}</Link>
+                                        <Link to={`/${props.category}/${article._id}`} className='recent-card-title-link'>{article.title.toLowerCase()}</Link>
                                     </h5>
                                     <div className='recent-card-authorDate'>
                                         <p className='recent-card-author text-muted'>{!article.author ? ' ' : 'By '}<span>{!article.author ? 'Author Unknown' : article.author}</span> | </p>
