@@ -10,6 +10,8 @@ const News = (props) => {
     const [articles, setArticles] = useState([])
     const [recentArticles, setRecentArticles] = useState([])
 
+    const [pageSize, setPageSize] = useState()
+
     const updateNews = async () => {
         try {
             const apiKey = process.env.REACT_APP_API_KEY
@@ -22,9 +24,8 @@ const News = (props) => {
             })
 
             let parsedData = await data.json()
-
-            console.log(parsedData)
             setArticles(parsedData.articles)
+            setPageSize(7)
 
         } catch (err) {
             console.log(err)
@@ -48,6 +49,7 @@ const News = (props) => {
 
             let parsedData = await data.json()
             setRecentArticles(parsedData.articles)
+            setPageSize(12)
 
         } catch (err) {
             console.log(err)
@@ -81,7 +83,6 @@ const News = (props) => {
                 </ul>
             </div>
 
-
             <div className='recent-container' name='recent'>
                 <h2 className='recent-title'>Recent</h2>
                 <ul className='recent-card-list'>
@@ -91,7 +92,7 @@ const News = (props) => {
                                 <img src={article.media || 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg'} className='recent-card-image' onError={(e) => (e.target.onerror = null, e.target.src = 'https://cdn.pixabay.com/photo/2020/03/05/17/35/tech-news-4905017_640.jpg')} />
                                 <div className='recent-card-body'>
                                     <h5 className='recent-card-title'>
-                                        <Link to={`/${props.category}/${article._id}`} className='recent-card-title-link'>{article.title.toLowerCase()}</Link>
+                                        <Link to={`/${props.category}/${article._id}/recent`} className='recent-card-title-link'>{article.title.toLowerCase()}</Link>
                                     </h5>
                                     <div className='recent-card-authorDate'>
                                         <p className='recent-card-author text-muted'>{!article.author ? ' ' : 'By '}<span>{!article.author ? 'Author Unknown' : article.author}</span> | </p>

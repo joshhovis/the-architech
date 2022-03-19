@@ -1,5 +1,5 @@
 import './App.sass';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar.jsx';
 import News from './components/News/News.jsx';
@@ -35,7 +35,6 @@ function App() {
             <Route path='/virtual-reality' element={<News category='virtual-reality' />} />
             <Route path='/cybersecurity' element={<News category='cybersecurity' />} />
 
-
             <Route path='/tech/:id' element={<NewsArticle category='tech' />} />
             <Route path='/mobile-development/:id' element={<NewsArticle category='mobile-development' />} />
             <Route path='/crypto/:id' element={<NewsArticle category='crypto' />} />
@@ -43,6 +42,14 @@ function App() {
             <Route path='/computer-science/:id' element={<NewsArticle category='computer-science' />} />
             <Route path='/virtual-reality/:id' element={<NewsArticle category='virtual-reality' />} />
             <Route path='/cybersecurity/:id' element={<NewsArticle category='cybersecurity' />} />
+
+            <Route path='/tech/:id/recent' element={<NewsArticle category='tech' />} />
+            <Route path='/mobile-development/:id/recent' element={<NewsArticle category='mobile-development' />} />
+            <Route path='/crypto/:id/recent' element={<NewsArticle category='crypto' />} />
+            <Route path='/artificial-intelligence/:id/recent' element={<NewsArticle category='artificial-intelligence' />} />
+            <Route path='/computer-science/:id/recent' element={<NewsArticle category='computer-science' />} />
+            <Route path='/virtual-reality/:id/recent' element={<NewsArticle category='virtual-reality' />} />
+            <Route path='/cybersecurity/:id/recent' element={<NewsArticle category='cybersecurity' />} />
           </Routes>
         </div>
         <Footer />
