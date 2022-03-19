@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar.jsx';
 import News from './components/News/News.jsx';
 import NewsArticle from './components/NewsItem/NewsItem';
+import RecentNewsArticle from './components/NewsItem/RecentNewsItem';
 import CategoryButtons from './components/Categories/Categories';
 import Footer from './components/Footer/Footer';
 
@@ -43,13 +44,13 @@ function App() {
             <Route path='/virtual-reality/:id' element={<NewsArticle category='virtual-reality' />} />
             <Route path='/cybersecurity/:id' element={<NewsArticle category='cybersecurity' />} />
 
-            <Route path='/tech/:id/recent' element={<NewsArticle category='tech' />} />
-            <Route path='/mobile-development/:id/recent' element={<NewsArticle category='mobile-development' />} />
-            <Route path='/crypto/:id/recent' element={<NewsArticle category='crypto' />} />
-            <Route path='/artificial-intelligence/:id/recent' element={<NewsArticle category='artificial-intelligence' />} />
-            <Route path='/computer-science/:id/recent' element={<NewsArticle category='computer-science' />} />
-            <Route path='/virtual-reality/:id/recent' element={<NewsArticle category='virtual-reality' />} />
-            <Route path='/cybersecurity/:id/recent' element={<NewsArticle category='cybersecurity' />} />
+            <Route path='/tech/:id/recent' element={<RecentNewsArticle category='tech' />} />
+            <Route path='/mobile-development/:id/recent' element={<RecentNewsArticle category='mobile-development' />} />
+            <Route path='/crypto/:id/recent' element={<RecentNewsArticle category='crypto' />} />
+            <Route path='/artificial-intelligence/:id/recent' element={<RecentNewsArticle category='artificial-intelligence' />} />
+            <Route path='/computer-science/:id/recent' element={<RecentNewsArticle category='computer-science' />} />
+            <Route path='/virtual-reality/:id/recent' element={<RecentNewsArticle category='virtual-reality' />} />
+            <Route path='/cybersecurity/:id/recent' element={<RecentNewsArticle category='cybersecurity' />} />
           </Routes>
         </div>
         <Footer />

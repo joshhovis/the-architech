@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 const NewsArticle = (props) => {
 
     const [newsArticle, setNewsArticle] = useState()
-    const [recentNewsArticle, setRecentNewsArticle] = useState()
     let { id } = useParams()
 
     const updateNewsArticle = () => {
@@ -23,22 +22,6 @@ const NewsArticle = (props) => {
     useEffect(() => {
         updateNewsArticle()
     })
-
-
-    const updateRecentArticles = () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
-        const recentURL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&sort_by=date&page_size=12&page=1`
-
-        fetch(recentURL, { headers: { 'x-api-key': apiKey } }).then((res) => res.json()).then(data => {
-
-            const foundArticle = data.articles.find(article => { return article._id == id })
-            setNewsArticle(foundArticle)
-        })
-    }
-    useEffect(() => {
-        updateRecentArticles()
-    })
-
 
     if (!newsArticle) {
         return <h3 className='loading-text' style={{ marginTop: '40px' }}>Your article is loading... If the article doesn't load, try refreshing the page!</h3>
