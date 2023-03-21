@@ -9,9 +9,9 @@ const NewsArticle = (props) => {
     let { id } = useParams()
 
     const updateNewsArticle = () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
+        // const apiKey = process.env.REACT_APP_API_KEY;
         const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=1`
-        fetch(URL, { headers: { 'x-api-key': apiKey } })
+        fetch(URL, { headers: { 'x-api-key': 'cV4DBQVFi-S8a_XgR4K__pcCA8v_GZRPCkDt_5pSm1w' } })
             .then((res) => res.json())
             .then(data => {
 

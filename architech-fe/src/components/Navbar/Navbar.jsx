@@ -22,9 +22,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                     <div className='collapse navbar-collapse' id='collapse-nav'>
                         <ul className='navbar-nav'>
 
-                            <li className='toggle-mode'>
+                            {/* <li className='toggle-mode'>
                                 <button className='toggle-mode-button' onClick={toggleTheme}><span>Toggle {themeStyle} Mode</span></button>
-                            </li>
+                            </li> */}
 
                             <li className='nav-item'>
                                 <Link to='/' className='nav-link' aria-current='page'>Home</Link>

@@ -2,8 +2,6 @@ import './News.sass'
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import ArticleData from '../TempData'
-import RecentArticleData from '../TempRecentData'
 
 const News = (props) => {
 
@@ -14,12 +12,12 @@ const News = (props) => {
 
     const updateNews = async () => {
         try {
-            const apiKey = process.env.REACT_APP_API_KEY
+            // const apiKey = process.env.REACT_APP_API_KEY
             const URL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&page_size=7&page=1`
 
             let data = await fetch(URL, {
                 headers: {
-                    'x-api-key': apiKey,
+                    'x-api-key': 'cV4DBQVFi-S8a_XgR4K__pcCA8v_GZRPCkDt_5pSm1w'
                 }
             })
 
@@ -38,12 +36,12 @@ const News = (props) => {
 
     const fetchRecentArticles = async () => {
         try {
-            const apiKey = process.env.REACT_APP_API_KEY
+            // const apiKey = process.env.REACT_APP_API_KEY
             const recentURL = `https://api.newscatcherapi.com/v2/search?q=${props.category}&lang=en&topic=tech&sort_by=date&page_size=12&page=1`
 
             let data = await fetch(recentURL, {
                 headers: {
-                    'x-api-key': apiKey
+                    'x-api-key': 'cV4DBQVFi-S8a_XgR4K__pcCA8v_GZRPCkDt_5pSm1w'
                 }
             })
 
