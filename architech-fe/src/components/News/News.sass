@@ -15,6 +15,130 @@
         background-image: linear-gradient(to bottom, #69eacb, #5ee8eb, #78e3ff, #9edcff, #c1d5ff, #c1c9ff, #c8bbfc, #d4abf4, #c093f2, #a97df1, #8c68f1, #6654f1)
         &:hover
 
+// .card-container
+//     width: 100%
+//     margin: 0 auto
+//     margin-top: 40px
+
+// .trending-title
+//     text-align: center
+//     margin-bottom: 20px
+    
+// .card-list
+//     width: 75%
+//     margin: 0 auto
+//     padding: 0
+//     display: flex
+//     flex-wrap: wrap
+//     position: relative
+
+//     // UL gradient background color 
+//     &::before
+//         content: ""
+//         position: absolute
+//         inset: -4px
+//         z-index: -1
+//         background-image: linear-gradient(to right top, #69eacb, #5ee8eb, #78e3ff, #9edcff, #c1d5ff, #c1c9ff, #c8bbfc, #d4abf4, #c093f2, #a97df1, #8c68f1, #6654f1)
+//         border-radius: 8px
+
+// .card
+//     width: 32.9%
+//     height: 450px
+//     margin: 0 auto
+//     border-radius: 8px
+
+//     // MIXIN FOR NEWS ARTICLES 1 & 4
+//     @mixin one-four
+//         width: 59%
+//         margin-bottom: 5px
+
+//         .card-img-top
+//             width: 55%
+//             height: auto
+        
+//         .card-body
+//             width: 40%
+
+//         .card-title-link
+//             font-size: 26px
+//             text-transform: uppercase
+//             font-weight: 600
+        
+//     // MIXIN FOR NEWS ARTICLES 2 & 3
+//     @mixin two-three
+//         width: 40%
+
+//         .card-img-top
+//             height: 70%
+
+//         .card-title-link
+//             font-size: 22px
+
+//     // MIXIN FOR NEWS ARTICLES 5, 6, 7
+//     @mixin five-plus
+//         height: auto
+//         margin-bottom: 3px
+
+//         .card-img-top
+//             height: 65%
+
+//         .card-title-link
+//             font-size: 22px
+    
+//     // First List Child
+//     &:nth-child(1)
+//         flex-direction: row
+//         margin-top: 3px
+//         @include one-four
+
+//     // Second List Child
+//     &:nth-child(2)
+//         margin-top: 3px
+//         @include two-three
+
+//     &:nth-child(3)
+//         @include two-three
+        
+//     &:nth-child(4)
+//         flex-direction: row-reverse
+//         @include one-four
+
+//     // All List Children Above Child 5
+//     &:nth-child(n+5)
+//         @include five-plus
+    
+//     &-img-top
+//         object-fit: cover 
+//         width: 100%
+//         height: 400px
+//         border-radius: 8px
+    
+//     &-body
+
+//     &-title
+//         text-transform: capitalize
+
+//         &-link
+//             color: black
+//             transition: all 0.2s ease-in
+//             font-family: 'Ubuntu', sans-serif
+//             letter-spacing: 0.4px
+
+//             &:hover
+//                 transition: all 0.2s ease-out
+//                 text-decoration: none
+//                 color: #a97df1
+
+//     &-author-name
+//         font-weight: 400
+//         text-transform: uppercase
+//         font-family: 'Ubuntu', sans-serif
+//         letter-spacing: .8px
+
+//         span
+//             color: #a97df1
+
+
 .card-container
     width: 100%
     margin: 0 auto
@@ -23,121 +147,70 @@
 .trending-title
     text-align: center
     margin-bottom: 20px
-    
+
 .card-list
     width: 75%
     margin: 0 auto
     padding: 0
     display: flex
     flex-wrap: wrap
-    position: relative
-
-    // UL gradient background color 
-    &::before
-        content: ""
-        position: absolute
-        inset: -4px
-        z-index: -1
-        background-image: linear-gradient(to right top, #69eacb, #5ee8eb, #78e3ff, #9edcff, #c1d5ff, #c1c9ff, #c8bbfc, #d4abf4, #c093f2, #a97df1, #8c68f1, #6654f1)
-        border-radius: 8px
+    gap: 20px
 
 .card
-    width: 32.9%
+    width: calc(33.33% - 20px)
     height: 450px
     margin: 0 auto
     border-radius: 8px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    overflow: hidden
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
-    // MIXIN FOR NEWS ARTICLES 1 & 4
-    @mixin one-four
-        width: 59%
-        margin-bottom: 5px
+.card-img-top
+    object-fit: cover
+    width: 100%
+    height: 60%
+    border-top-left-radius: 8px
+    border-top-right-radius: 8px
 
-        .card-img-top
-            width: 55%
-            height: auto
-        
-        .card-body
-            width: 40%
+.card-body
+    padding: 10px
 
-        .card-title-link
-            font-size: 26px
-            text-transform: uppercase
-            font-weight: 600
-        
-    // MIXIN FOR NEWS ARTICLES 2 & 3
-    @mixin two-three
-        width: 40%
+.card-title
+    text-transform: capitalize
+    margin-bottom: 10px
 
-        .card-img-top
-            height: 70%
+.card-title-link
+    color: black
+    font-size: 22px
+    transition: all 0.2s ease-in
+    font-family: 'Ubuntu', sans-serif
+    letter-spacing: 0.4px
+    display: inline-block
+    overflow: hidden
+    text-overflow: ellipsis
+    height: 80px
 
-        .card-title-link
-            font-size: 22px
+    &:hover
+        transition: all 0.2s ease-out
+        color: #a97df1
+        text-decoration: none
 
-    // MIXIN FOR NEWS ARTICLES 5, 6, 7
-    @mixin five-plus
-        height: auto
-        margin-bottom: 3px
+.card-author-name
+    font-weight: 400
+    text-transform: uppercase
+    font-family: 'Ubuntu', sans-serif
+    letter-spacing: .8px
 
-        .card-img-top
-            height: 65%
+    span
+        color: #a97df1
 
-        .card-title-link
-            font-size: 22px
-    
-    // First List Child
-    &:nth-child(1)
-        flex-direction: row
-        margin-top: 3px
-        @include one-four
-
-    // Second List Child
-    &:nth-child(2)
-        margin-top: 3px
-        @include two-three
-
-    &:nth-child(3)
-        @include two-three
-        
-    &:nth-child(4)
-        flex-direction: row-reverse
-        @include one-four
-
-    // All List Children Above Child 5
-    &:nth-child(n+5)
-        @include five-plus
-    
-    &-img-top
-        object-fit: cover 
-        width: 100%
-        height: 400px
-        border-radius: 8px
-    
-    &-body
-
-    &-title
-        text-transform: capitalize
-
-        &-link
-            color: black
-            transition: all 0.2s ease-in
-            font-family: 'Ubuntu', sans-serif
-            letter-spacing: 0.4px
-
-            &:hover
-                transition: all 0.2s ease-out
-                text-decoration: none
-                color: #a97df1
-
-    &-author-name
-        font-weight: 400
-        text-transform: uppercase
-        font-family: 'Ubuntu', sans-serif
-        letter-spacing: .8px
-
-        span
-            color: #a97df1
-
+@media screen and (max-width: 767px)
+    .card
+        width: calc(50% - 20px)
+    .card-title-link
+        height: 55px
     
 
 // RECENT NEWS ARTICLES

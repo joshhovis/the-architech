@@ -1,12 +1,85 @@
+// .footer
+//     background: white
+//     display: flex
+//     height: 180px
+//     width: 98%
+//     border-radius: 8px 8px 0 0
+//     margin: 0 auto
+//     margin-top: 50px
+//     position: relative
+
+//     &::before
+//         content: ""
+//         position: absolute
+//         inset: -5px -5px 0
+//         z-index: -1
+//         background-image: linear-gradient(to right top, #69eacb, #5ee8eb, #78e3ff, #9edcff, #c1d5ff, #c1c9ff, #c8bbfc, #d4abf4, #c093f2, #a97df1, #8c68f1, #6654f1)
+//         border-radius: 8px 8px 0 0
+
+//     &-architech
+//         font-family: 'Supermercado One', cursive
+//         font-size: 36px
+//         margin:
+//             left: 40px
+//             right: 80px
+//             top: 25px
+
+//     &-links
+//         display: flex
+    
+//     &-contact
+//         display: flex
+//         width: 300px
+//         position: absolute
+//         bottom: 20px
+//         left: 45%
+
+//         &-est
+//             margin-bottom: 0
+//             display: flex
+//             align-items: center
+//             font-size: 18px
+
+//         &-icons
+//             margin-left: 20px
+//             margin-right: 10px
+//             font-size: 24px
+//             span
+//                 color:#6654f1
+
+//             &-link
+//                 margin-right: 10px
+
+// .footer-div
+//     margin-top: 35px
+//     margin-right: 50px
+//     font-family: 'Supermercado One', cursive
+//     height: 50%
+
+//     &-title
+//         margin-bottom: 15px
+//         font-size: 26px
+        
+//         &-link
+//             color: rgba(0, 0, 0, .9)
+//             transition: all 0.2s
+//             cursor: pointer
+
+//             &:hover
+//                 text-decoration: none
+//                 color: #a97df1
+
 .footer
     background: white
     display: flex
-    height: 180px
+    height: auto
     width: 98%
     border-radius: 8px 8px 0 0
     margin: 0 auto
     margin-top: 50px
     position: relative
+    flex-wrap: wrap
+    padding: 20px 0
 
     &::before
         content: ""
@@ -19,20 +92,21 @@
     &-architech
         font-family: 'Supermercado One', cursive
         font-size: 36px
-        margin:
-            left: 40px
-            right: 80px
-            top: 25px
+        margin: 25px auto
 
     &-links
         display: flex
+        flex-wrap: wrap
+        justify-content: center
+        width: 100%
     
     &-contact
         display: flex
         width: 300px
-        position: absolute
-        bottom: 20px
-        left: 45%
+        position: relative
+        margin: 20px auto
+        flex-wrap: wrap
+        justify-content: center
 
         &-est
             margin-bottom: 0
@@ -53,6 +127,7 @@
 .footer-div
     margin-top: 35px
     margin-right: 50px
+    margin-bottom: 20px
     font-family: 'Supermercado One', cursive
     height: 50%
 
@@ -68,3 +143,19 @@
             &:hover
                 text-decoration: none
                 color: #a97df1
+
+@media screen and (max-width: 767px)
+    .footer
+        &-architech
+            font-size: 28px
+            margin: 10px
+
+        &-links
+            margin-top: 15px
+        
+        &-div
+            margin-right: 20px
+            margin-bottom: 10px
+            height: auto
+            &-title
+                font-size: 22px
